@@ -16,3 +16,16 @@ SELECT DISTINCT author_id AS ID FROM Views WHERE author_id=viewer_id ORDER BY au
 SELECT tweet_id FROM Tweets WHERE LENGTH(CONTENT)>15;
 
 
+1378. Replace Employee ID With The Unique Identifier
+SELECT EU.unique_id , E.name FROM Employees E LEFT JOIN EmployeeUNI EU ON E.ID = EU.ID;
+
+1068. Product Sales Analysis I
+SELECT P.product_name,S.year,S.price FROM  Sales AS S  JOIN Product AS P ON S.product_id=P.product_id;
+
+1581. Customer Who Visited but Did Not Make Any Transactions
+SELECT V.customer_id , COUNT(V.visit_id) AS count_no_trans  FROM Visits V LEFT JOIN Transactions T ON V.visit_id=t.visit_id WHERE T.transaction_id IS NULL GROUP BY V.customer_id;
+
+197. Rising Temperature
+SELECT W1.ID FROM Weather AS W1 JOIN Weather AS W2 ON DATEDIFF(W1.recordDate,W2.recordDate)=1 AND W1.temperature > W2.temperature;
+
+
