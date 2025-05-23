@@ -114,3 +114,17 @@ SELECT S.user_id,
 FROM Signups S
 LEFT JOIN Confirmations C ON S.user_id = C.user_id
 GROUP BY S.user_id;
+
+
+620. Not Boring Movies
+SELECT * FROM Cinema WHERE mod(id,2)=1 and description!='boring' order by rating desc;
+
+
+1251. Average Selling Price
+SELECT P.product_id,   IFNULL(ROUND(sum(P.price*U.units)/sum(U.units),2),0) as average_price
+FROM Prices P left join UnitsSold U on 
+P.product_id = U.product_id and U.purchase_date Between start_date and end_date  group by P.product_id ;
+
+1075. Project Employees I
+select P.project_id , ROUND(sum(E.experience_years)/count(*),2) as average_years
+from Project P join Employee E on P.employee_id = E.employee_id group by P.project_id ;
