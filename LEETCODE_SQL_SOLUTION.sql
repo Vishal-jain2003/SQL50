@@ -128,3 +128,16 @@ P.product_id = U.product_id and U.purchase_date Between start_date and end_date 
 1075. Project Employees I
 select P.project_id , ROUND(sum(E.experience_years)/count(*),2) as average_years
 from Project P join Employee E on P.employee_id = E.employee_id group by P.project_id ;
+
+1633. Percentage of Users Attended a Contest
+select contest_id, Round(count(distinct user_id)*100/(select count(user_id) from Users),2) as percentage
+       from Register group by contest_id order by percentage desc, contest_id ;
+
+1211. Queries Quality and Percentage
+select query_name,round(avg(rating/position),2) as quality , round(avg(if(rating<3,1,0)*100),2) as poor_query_percentage
+ from queries
+  group by query_name; 
+
+
+
+
